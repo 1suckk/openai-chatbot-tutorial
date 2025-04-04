@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>OpenAI Chat</title>
+    <!-- jQuery CDN 추가 -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style type="text/css">
+    	#responseDiv {
+    		width: 500px;
+    	}
+    </style>
+</head>
+<body>
+    <h1>OpenAI Chat</h1>
+    <textarea id="prompt" rows="5" cols="50"></textarea>
+    <button id="sendButton">Send</button>
+    <div id="responseDiv">Response: </div>
+
+    <script th:inline="javascript">
+        $(document).ready(function() {
+            $('#sendButton').click(function() {
+                var userInput = $('#prompt').val();
+                console.log(userInput);
+                $.ajax({
+                    type: 'POST',
+                    url: '/chat',
+                    contentType: 'text/plain',
+                    data: userInput,
+                    success: function(response) {
+                        $('#responseDiv').text('Response: ' + response);
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Error occurred: ' + error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
