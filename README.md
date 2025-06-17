@@ -8,4 +8,8 @@
 - 우선 코드에서 수정할 부분은 application.properties에서 api key만 넣으시고, 서버 구동 후 localhost:8080/으로 브라우저에서 들어가시면 프롬프트를 입력하는 창이 나옵니다 입력하시고 send버튼 누르시면  5초 후에 바로 밑 div에 답변이 생성됩니다
 
 - 인벤토리
-- spring boot, thymeleaf, openai, html 
+  - spring boot 3.4.3
+  - java 17
+  - thymeleaf
+  - openai
+  - html 
